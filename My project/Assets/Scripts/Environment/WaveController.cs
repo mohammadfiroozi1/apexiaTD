@@ -13,11 +13,11 @@ public class WaveController : MonoBehaviour
 
     [Header("Refrences")]
     [SerializeField] EnemiesListChannel enemiesListChannel;
-    [SerializeField] EnemiesPoolObject enemyPool;
 
     [Header("Spawn Options")]
     [SerializeField] float spawnCooldown;
-
+    [SerializeField] Transform spawnTransform;
+ 
     private int waveIndex = -1;
     private int intervalCounter;
     private int waveCounter;
@@ -36,10 +36,20 @@ public class WaveController : MonoBehaviour
             waveIndex++;
             for (int i = 0; i < waves[waveIndex].enemyCount; i++)
             {
-
+                var enemy = waves[waveIndex].enemies[0].pool.Get();
+                enemy.transform.position = spawnTransform.position;
+                enemiesCount++;
+                intervalCounter++;
+                if (waves[waveIndex].spawnInterval != 0 && intervalCounter % waves[waveIndex].spawnInterval == 0)
+                {
+                    var secondTypeEnemy = waves[waveIndex].enemies[1].pool.Get();
+                    secondTypeEnemy.transform.position = spawnTransform.position;
+                    enemiesCount++;
+                    intervalCounter++;
+                }
+                yield return new WaitForSeconds(spawnCooldown);
             }
         }
-        yield break;
     }
 
     private void EnemyDied() => enemiesCount--;
