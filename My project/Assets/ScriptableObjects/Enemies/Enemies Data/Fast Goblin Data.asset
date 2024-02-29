@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f169d079674c45348b6ba925a2e3a381, type: 3}
-  m_Name: Enemy Data
+  m_Name: Fast Goblin Data
   m_EditorClassIdentifier: 
   defaultHp: 50
   defaultMoveSpeed: 5
