@@ -10,6 +10,7 @@ public class Enemies : MonoBehaviour
     [Header("Refrences")]
     [SerializeField] EnemyData data;
     [SerializeField] WayPointEventChannel wayPointEventChannel;
+    [SerializeField] EnemiesListChannel enemiesListChannel;
 
     [Header("Componnents")]
     [SerializeField] Rigidbody rb;
@@ -18,6 +19,7 @@ public class Enemies : MonoBehaviour
     public List<Transform> wayPoints;
 
     private int currentWayPointIndex = 0;
+    private float hp;
     Quaternion targetPos;
 
     private void Start()
@@ -28,13 +30,14 @@ public class Enemies : MonoBehaviour
     private void InitializeEnemy()
     {
         wayPoints = wayPointEventChannel.GetWayPoints();
-        
+        hp = data.defaultHp;
     }
 
     private void Update()
     {
         Patrol(wayPoints);
 
+        
     }
     private void Patrol(List<Transform> wayPoints)
     {
@@ -43,18 +46,13 @@ public class Enemies : MonoBehaviour
         Transform wp = wayPoints[currentWayPointIndex];
         if (Vector3.Distance(transform.position, wp.position) < 1f)
         {
-            //make the enemy position as equal as waypoint pos
-            //transform.position = wp.position;
-
             currentWayPointIndex = (currentWayPointIndex + 1) % wayPoints.Count;
         }
         else
         {
-
             Vector3 targetDirection = wp.position - transform.position;
             targetDirection.y = 0f;
             Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
-
             transform.position = Vector3.MoveTowards(transform.position, wp.position, data.defaultMoveSpeed * Time.deltaTime);
             //smooth look 
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.1f);
