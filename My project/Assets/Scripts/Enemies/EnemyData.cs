@@ -10,4 +10,5 @@ public class EnemyData : ScriptableObject
 
     [Header("Move Options")]
     public int defaultMoveSpeed;
+    public float rotationSpeed;
 }
