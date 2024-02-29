@@ -11,16 +11,16 @@ public class Enemies : MonoBehaviour
     [SerializeField] EnemyData data;
     [SerializeField] WayPointEventChannel wayPointEventChannel;
     [SerializeField] EnemiesListChannel enemiesListChannel;
+    [SerializeField] EnemiesPoolObject enemiesPoolObj;
 
     [Header("Componnents")]
     [SerializeField] Rigidbody rb;
     [SerializeField] Animator anim;
 
-    public List<Transform> wayPoints;
+    private List<Transform> wayPoints;
 
     private int currentWayPointIndex = 0;
     private float hp;
-    Quaternion targetPos;
 
     private void Start()
     {
@@ -35,6 +35,10 @@ public class Enemies : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            takeDmg(50);
+        }
         Patrol(wayPoints);
 
         
@@ -59,5 +63,28 @@ public class Enemies : MonoBehaviour
              
         }
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Projectile"))
+        {
+            var projectile = other.GetComponent<Projectile>();
+            takeDmg(projectile.GetDamage());
+        }
+    }
+
+    private void takeDmg(int damage)
+    {
+        hp -= damage;
+        if(hp <= 0)
+        {
+            Die();
+        }
+    }
+    public void Die()
+    {
+        enemiesListChannel.RaiseEnemyDied();
+        enemiesPoolObj.OnReleaseObject(this);
     }
 }
