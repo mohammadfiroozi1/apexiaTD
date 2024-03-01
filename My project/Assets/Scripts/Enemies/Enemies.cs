@@ -22,10 +22,12 @@ public class Enemies : MonoBehaviour
     private int currentWayPointIndex = 0;
     private float hp;
 
-    private void Start()
+    private void OnEnable()
     {
         InitializeEnemy();
+
     }
+
 
     private void InitializeEnemy()
     {

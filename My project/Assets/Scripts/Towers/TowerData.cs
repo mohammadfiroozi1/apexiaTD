@@ -18,9 +18,6 @@ public class TowerData : ScriptableObject
     [Header("Type Options")]
     public TowerType type;
 
-    [Header("Damage Options")]
-    public int defaulDmg;
-
     [Header("Attack Options")]
     public float attackCooldown;
     public float attackRadius;

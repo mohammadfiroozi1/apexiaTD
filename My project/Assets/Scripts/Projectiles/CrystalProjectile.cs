@@ -53,6 +53,7 @@ public class CrystalProjectile : Projectile
     {
         yield return new WaitForSeconds(0.05f);
         data.projectilePool.OnReleaseObject(this);
+        print("al;sdkfasdf");
 
     }
     IEnumerator DestroyHitEffect()
