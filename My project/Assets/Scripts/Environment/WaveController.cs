@@ -18,10 +18,10 @@ public class WaveController : MonoBehaviour
     [SerializeField] float spawnCooldown;
     [SerializeField] Transform spawnTransform;
  
-    private int waveIndex = -1;
-    private int intervalCounter;
-    private int waveCounter;
-    private int enemiesCount;
+    [SerializeField] private int waveIndex = -1;
+    [SerializeField] private int intervalCounter;
+    [SerializeField] private int waveCounter = 0;
+    [SerializeField] private int enemiesCount;
 
 
     void OnEnable()
@@ -31,25 +31,33 @@ public class WaveController : MonoBehaviour
 
     IEnumerator Start()
     {
-        if(enemiesCount == 0)
+        while (waveCounter < waves.Count)
         {
-            waveIndex++;
-            for (int i = 0; i < waves[waveIndex].enemyCount; i++)
+            intervalCounter = 0; // Reset intervalCounter at the beginning of each wave
+
+            if (enemiesCount == 0 && waveIndex < waves.Count)
             {
-                var enemy = waves[waveIndex].enemies[0].pool.Get();
-                enemy.transform.position = spawnTransform.position;
-                enemiesCount++;
-                intervalCounter++;
-                if (waves[waveIndex].spawnInterval != 0 && intervalCounter % waves[waveIndex].spawnInterval == 0)
+                waveIndex++;
+                for (int i = 0; i < waves[waveIndex].enemyCount; i++)
                 {
-                    var secondTypeEnemy = waves[waveIndex].enemies[1].pool.Get();
-                    secondTypeEnemy.transform.position = spawnTransform.position;
+                    var enemy = waves[waveIndex].enemies[0].pool.Get();
+                    enemy.transform.position = spawnTransform.position;
                     enemiesCount++;
                     intervalCounter++;
+
+                    if (waves[waveIndex].spawnInterval != 0 && (intervalCounter % waves[waveIndex].spawnInterval == 0))
+                    {
+                        var secondTypeEnemy = waves[waveIndex].enemies[1].pool.Get();
+                        print("typ 2");
+                        secondTypeEnemy.transform.position = spawnTransform.position;
+                    }
+                    yield return new WaitForSeconds(spawnCooldown);
                 }
-                yield return new WaitForSeconds(spawnCooldown);
+                waveCounter++; // Increment waveCounter outside the if block
             }
+            yield return null;
         }
+
     }
 
     private void EnemyDied() => enemiesCount--;

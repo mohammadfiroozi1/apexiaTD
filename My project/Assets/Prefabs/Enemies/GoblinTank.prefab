@@ -693,9 +693,10 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 734e4d675b29f864c9fbea0acee438a4, type: 2}
   wayPointEventChannel: {fileID: 11400000, guid: 83b8c3a8151784c40900715c0267b605,
     type: 2}
+  enemiesListChannel: {fileID: 11400000, guid: a2aa12f1967c42147891b86c7c38c353, type: 2}
+  enemiesPoolObj: {fileID: 11400000, guid: 568d37a8148804c4fae7c0839e4391ac, type: 2}
   rb: {fileID: 5662044775520610924}
   anim: {fileID: 5630836300110898803}
-  wayPoints: []
 --- !u!54 &5662044775520610924
 Rigidbody:
   m_ObjectHideFlags: 0

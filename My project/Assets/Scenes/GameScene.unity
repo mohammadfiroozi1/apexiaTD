@@ -195,8 +195,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5b2eb0f2c41e3244d9e4c0f25debfe06, type: 2}
   - {fileID: 11400000, guid: 8f34065ef7e265b42bda725d73106e52, type: 2}
   enemiesListChannel: {fileID: 11400000, guid: a2aa12f1967c42147891b86c7c38c353, type: 2}
-  spawnCooldown: 0.3
+  spawnCooldown: 0.5
   spawnTransform: {fileID: 563455998}
+  intervalCounter: 0
+  enemiesCount: 0
 --- !u!4 &242005066
 Transform:
   m_ObjectHideFlags: 0
@@ -418,21 +420,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6233545453386573023, guid: 26ec5e1271f56ab428aedd7bc621d38b,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6233545453386573023, guid: 26ec5e1271f56ab428aedd7bc621d38b,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6233545453386573023, guid: 26ec5e1271f56ab428aedd7bc621d38b,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6233545453386573023, guid: 26ec5e1271f56ab428aedd7bc621d38b,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.7326045
       objectReference: {fileID: 0}
@@ -481,32 +468,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6238431485321154220, guid: 26ec5e1271f56ab428aedd7bc621d38b,
-        type: 3}
-      propertyPath: data
-      value: 
-      objectReference: {fileID: 11400000, guid: 734e4d675b29f864c9fbea0acee438a4,
-        type: 2}
     - target: {fileID: 6239496945259999247, guid: 26ec5e1271f56ab428aedd7bc621d38b,
         type: 3}
       propertyPath: m_Name
       value: GoblinTank
       objectReference: {fileID: 0}
-    - target: {fileID: 6300616424452831875, guid: 26ec5e1271f56ab428aedd7bc621d38b,
+    - target: {fileID: 6239496945259999247, guid: 26ec5e1271f56ab428aedd7bc621d38b,
         type: 3}
-      propertyPath: m_Radius
-      value: 0.6051754
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6300616424452831875, guid: 26ec5e1271f56ab428aedd7bc621d38b,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 0.5948247
-      objectReference: {fileID: 0}
-    - target: {fileID: 6303355775153684115, guid: 26ec5e1271f56ab428aedd7bc621d38b,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a34a30e9e96a95349a29c63e2dfdc867, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26ec5e1271f56ab428aedd7bc621d38b, type: 3}
 --- !u!1 &477111244
@@ -887,6 +858,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GB_ballista_2
       objectReference: {fileID: 0}
+    - target: {fileID: 1244311995284304, guid: 1e0f348fd385c6c4db76966f16d669fc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4256028422830652, guid: 1e0f348fd385c6c4db76966f16d669fc, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1185,6 +1160,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GB_ballista_3
       objectReference: {fileID: 0}
+    - target: {fileID: 1205523137785642, guid: 924e5b544476d6c428cd90aaa15542ae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4551389941344782, guid: 924e5b544476d6c428cd90aaa15542ae, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1331,6 +1310,10 @@ PrefabInstance:
     - target: {fileID: 1130480014519452, guid: 1995bf0f02b8a9649a628af3bcbe5720, type: 3}
       propertyPath: m_Name
       value: GB_ballista_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130480014519452, guid: 1995bf0f02b8a9649a628af3bcbe5720, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4965026067219184, guid: 1995bf0f02b8a9649a628af3bcbe5720, type: 3}
       propertyPath: m_RootOrder

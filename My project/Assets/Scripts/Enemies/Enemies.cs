@@ -67,11 +67,11 @@ public class Enemies : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Projectile"))
+/*        if (other.gameObject.CompareTag("Projectile"))
         {
             var projectile = other.GetComponent<Projectile>();
             takeDmg(projectile.GetDamage());
-        }
+        }*/
     }
 
     private void takeDmg(int damage)
