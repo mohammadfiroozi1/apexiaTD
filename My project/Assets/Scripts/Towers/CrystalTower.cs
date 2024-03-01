@@ -6,7 +6,12 @@ public class CrystalTower : Toweres
 {
 
     Transform targetEnemy;
-    private float lastAttackTime = 0;
+    float attackCooldown;
+
+    private void Start()
+    {
+        attackCooldown = data.attackCooldown;
+    }
     public override void Update()
     {
         FindTarget();
@@ -31,10 +36,16 @@ public class CrystalTower : Toweres
     public override void Attack()
     {
         base.Attack();
-        if(targetEnemy != null && Time.time - lastAttackTime > 1 / data.attackCooldown)
+        if(targetEnemy != null)
         {
-            SpawnProjectile();
-            lastAttackTime = Time.time;
+            attackCooldown-=Time.deltaTime;
+            if (attackCooldown <= 0)
+            {
+                print("hi");
+
+                SpawnProjectile();
+                attackCooldown = data.attackCooldown;
+            }
 
         }
     }
@@ -43,7 +54,7 @@ public class CrystalTower : Toweres
     {
         var projectile = data.projectile.data.projectilePool.pool.Get();
         projectile.transform.position = projectileSpawnPos.position;
-
+        projectile.Initialize(targetEnemy, data.projectile.data.moveSpeed);
 
     }
 

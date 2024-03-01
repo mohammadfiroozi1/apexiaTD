@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Crystal : Projectile
+public class CrystalProjectile : Projectile
 {
-    [SerializeField] ParticleSystem hitEffect;
+    [SerializeField] ProjectileHitEffectPool hitEffectPool;
+    ProjectileHitEffect hitEffect;
     public override void Initialize(Transform target, float moveSpeed)
     {
         base.Initialize(target, moveSpeed);
     }
+
 
     public override void Update()
     {
@@ -20,12 +22,13 @@ public class Crystal : Projectile
         base.MoveToTarget(target);
         if(target!= null)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, target.position + new Vector3(0,1f,0), moveSpeed * Time.deltaTime);;
         }
         else
         {
             transform.position = Vector3.MoveTowards(transform.position, lastTargetPosition.position, moveSpeed * Time.deltaTime);
             StartCoroutine(DestroyProjectile());
+
         }
 
     }
@@ -36,8 +39,11 @@ public class Crystal : Projectile
         {
             var enemy = other.gameObject.GetComponent<Enemies>();
             enemy.takeDmg(GetDamageAmount());
-            hitEffect.Play();
+            hitEffect = hitEffectPool.pool.Get();
+            hitEffect.transform.position = target.transform.position + new Vector3(0, 1f, 0);
+            StartCoroutine(DestroyHitEffect());
             data.projectilePool.OnReleaseObject(this);
+
         }
     }
 
@@ -47,5 +53,12 @@ public class Crystal : Projectile
     {
         yield return new WaitForSeconds(0.05f);
         data.projectilePool.OnReleaseObject(this);
+
+    }
+    IEnumerator DestroyHitEffect()
+    {
+        yield return new WaitForSeconds(0.05f);
+        hitEffectPool.OnReleaseObject(hitEffect);
+
     }
 }

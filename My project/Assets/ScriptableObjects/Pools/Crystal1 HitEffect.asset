@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69b376579b458d34d85581b14f5ca8df, type: 3}
-  m_Name: Crystal Tower Data
+  m_Script: {fileID: 11500000, guid: 8d561ab18d42ecf4b93aee63014b169f, type: 3}
+  m_Name: Crystal1 HitEffect
   m_EditorClassIdentifier: 
-  projectile: {fileID: -7687128639009278186, guid: 27ef37f99b13c4444b8476da1074d802,
+  objectPrefab: {fileID: 1065624466683323245, guid: 0b12d45063fc96a4f9e428038ad4190e,
     type: 3}
-  type: 0
-  defaulDmg: 5
-  attackCooldown: 0.5
-  attackRadius: 50

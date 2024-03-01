@@ -5096,8 +5096,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7858829232098371411}
   - component: {fileID: 7919195447489203079}
-  - component: {fileID: 7824891589224275811}
-  - component: {fileID: 7854578983852591869}
+  - component: {fileID: -7687128639009278186}
   m_Layer: 0
   m_Name: Crystal_Projectile 1
   m_TagString: Untagged
@@ -5134,7 +5133,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7824891589224275811
+--- !u!114 &-7687128639009278186
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5143,28 +5142,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7855584218654176969}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 807a988a1765edd439007be8fbee2c70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 8
-  target: {fileID: 0}
-  impactParticle: {fileID: 1336844341958346, guid: 0b12d45063fc96a4f9e428038ad4190e,
-    type: 3}
-  impactNormal: {x: 0, y: 0, z: 0}
-  twr: {fileID: 0}
---- !u!114 &7854578983852591869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7855584218654176969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed7b99972dfcb1d43bc42a94254ff76a, type: 3}
+  m_Script: {fileID: 11500000, guid: d38b1dde57d5a4e449d5766207355ceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 8489633a77de9b54b9999c36f0df0417, type: 2}
+  target: {fileID: 0}
+  lastTargetPosition: {fileID: 0}
+  moveSpeed: 0
+  hitEffectPool: {fileID: 11400000, guid: 9bcca07107b162d4e85cd97846a8d5f8, type: 2}
 --- !u!1 &7855672669402659367
 GameObject:
   m_ObjectHideFlags: 0
