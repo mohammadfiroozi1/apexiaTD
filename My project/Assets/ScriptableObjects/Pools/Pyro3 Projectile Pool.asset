@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b35d9327f370d40bf743e25831f0a9, type: 3}
   m_Name: Pyro3 Projectile Pool
   m_EditorClassIdentifier: 
-  objectPrefab: {fileID: 0}
+  objectPrefab: {fileID: 2596305686643924515, guid: b87354534a82d204c8ecfbf3900fa060,
+    type: 3}
