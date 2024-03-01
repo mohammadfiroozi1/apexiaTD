@@ -48,8 +48,9 @@ public class WaveController : MonoBehaviour
                     if (waves[waveIndex].spawnInterval != 0 && (intervalCounter % waves[waveIndex].spawnInterval == 0))
                     {
                         var secondTypeEnemy = waves[waveIndex].enemies[1].pool.Get();
-                        print("typ 2");
                         secondTypeEnemy.transform.position = spawnTransform.position;
+                        enemiesCount++;
+                        intervalCounter++;
                     }
                     yield return new WaitForSeconds(spawnCooldown);
                 }
