@@ -35,13 +35,7 @@ public class Enemies : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            takeDmg(50);
-        }
-        Patrol(wayPoints);
-
-        
+        Patrol(wayPoints);   
     }
     private void Patrol(List<Transform> wayPoints)
     {
@@ -65,16 +59,8 @@ public class Enemies : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-/*        if (other.gameObject.CompareTag("Projectile"))
-        {
-            var projectile = other.GetComponent<Projectile>();
-            takeDmg(projectile.GetDamage());
-        }*/
-    }
 
-    private void takeDmg(int damage)
+    public void takeDmg(int damage)
     {
         hp -= damage;
         if(hp <= 0)

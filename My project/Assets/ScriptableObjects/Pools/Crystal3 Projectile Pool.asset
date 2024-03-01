@@ -10,6 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63b35d9327f370d40bf743e25831f0a9, type: 3}
-  m_Name: Crystal Projectile Pool
+  m_Name: Crystal3 Projectile Pool
   m_EditorClassIdentifier: 
-  objectPrefab: {fileID: 0}
+  objectPrefab: {fileID: 6195481068955210172, guid: 3a34203900b6dee4b838921c571d50c3,
+    type: 3}

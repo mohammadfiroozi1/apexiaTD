@@ -12,4 +12,7 @@ public class ProjectileData : ScriptableObject
     [Header("Move Options")]
     public float moveSpeed;
 
+    [Header("Projectile Pool")]
+    public ProjectilePool projectilePool;
+
 }

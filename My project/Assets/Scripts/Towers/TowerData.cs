@@ -12,6 +12,9 @@ public enum TowerType
 [CreateAssetMenu(menuName = "Data/Tower Data", fileName = "Tower Data")]
 public class TowerData : ScriptableObject
 {
+    [Header("Projectile")]
+    public Projectile projectile;
+
     [Header("Type Options")]
     public TowerType type;
 
